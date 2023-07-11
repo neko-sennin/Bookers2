@@ -1,0 +1,14 @@
+<h1>Users#show詳細</h1>
+<div>
+  <h3><%= @user.name %></h3>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+</div>
+
+<h1>User投稿一覧</h1>
+<% @books.each do |book| %>
+<div>
+  <p>Title:<%= book.title %></p>
+  <p>Opinion:<%= book.body %></p>
+  <p>name:<%= book.user.name %></p>
+</div>
+<% end %>
