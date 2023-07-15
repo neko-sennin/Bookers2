@@ -12,9 +12,9 @@
           </thead>
           <tbody>
             <tr>
-              <th></th>
-              <th>Title:<%= @book.title %></th>
-              <th>Opinion:<%= @book.body %></th>
+              <th><%= image_tag @user.get_profile_image(100, 100) %></th>
+              <th><%= @book.title %></th>
+              <th><%= @book.body %></th>
             </tr>
           </tbody>
         </table>
