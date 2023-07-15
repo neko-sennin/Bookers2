@@ -1,44 +1,38 @@
-<main>
-  <div class="notice"></div>
   <div class="container px-5 px-sm-0">
     <div class="row">
+      
       <div class="col-md-3">
-        <h2>User info</h2>
-        <table class="table">
+        <%= render 'list', user: @user, book: @book %>
+      </div>
+        
+      <div class="col-md-8 offset-md-1">
+        <h2>Books</h2>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th></th>
+               <th>Title</th>
+              <th>Opinion</th>
+               <th colspan="3"></th>
+            </tr>
+          </thead>
           <tbody>
+            <% @books.each do |book| %>
             <tr>
-              <%= image_tag @user.get_profile_image(100, 100) %>
+              <td>
+                <%= image_tag book.user.get_profile_image(100, 100) %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
             </tr>
-            <tr>
-              <th>name</th>
-              <th><%= @user.name %></th>
-            </tr>
-            <tr>
-              <th>introduction</th>
-              <th><%= @user.introduction %></th>
-            </tr>
+            <% end %>
           </tbody>
         </table>
-        <div class="row">
-          <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
-            <i class="fas fa-user-cog"></i>
-          <% end %>
-        </div>
-        <h2>New book</h2>
-        <%= form_with model: @book do |f| %>
-          <div class="form-group">
-            <label for="book_title">Title</label>
-            <%= f.text_field :title, class:"form-control" %>
-          </div>
-          <div class="form-group">
-            <label for="book_body">Opinion</label>
-            <%= f.text_area :body, class:"form-control" %>
-          </div>
-          <div class="form-group">
-            <input type="submit" class="btn btn-success"  value="Create Book" >
-          </div>
-        <% end %>
       </div>
+        
     </div>
   </div>
-</main>
