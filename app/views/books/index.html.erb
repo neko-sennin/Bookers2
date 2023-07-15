@@ -1,4 +1,28 @@
-<% @books.each do |book| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+ <% @books.each do |book| %>
   <div>
     <%= link_to "詳細", book_path(book.id) %>
     <p>Title:<%= book.title %></p>
