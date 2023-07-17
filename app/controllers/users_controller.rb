@@ -29,12 +29,16 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def change
+    user_index :users, :name, unique: true
+  end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
   
 end
