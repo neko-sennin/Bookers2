@@ -11,11 +11,11 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 50 }
   
   def get_profile_image(width, height)
-  unless profile_image.attached?
-    file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
-    profile_image.attach(io: File.open(file_path), filename: 'sample-author1.jp', content_type: 'image/jpeg')
-  end
-  profile_image.variant(resize_to_limit: [width, height]).processed
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
+      profile_image.attach(io: File.open(file_path), filename: 'sample-author1.jp', content_type: 'image/jpeg')
+    end
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
 end
